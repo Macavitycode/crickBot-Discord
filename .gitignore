@@ -18,3 +18,4 @@
 !commands
 !commands/ping.js
 !commands/getscore.js
+!commands/articles.js

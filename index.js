@@ -27,6 +27,8 @@ client.on("message", (msg) => {
         client.commands.get('ping').execute(msg, args);
     } else if (com === 'get') {
         client.commands.get('getscore').execute(msg, args);
+    } else if (com === 'arts') {
+        client.commands.get('arts').execute(msg, args);
     }
 
 });
