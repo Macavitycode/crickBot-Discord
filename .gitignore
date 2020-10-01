@@ -12,7 +12,9 @@
 
 # Entry point
 !index.js
+!Procfile
 
 # Commands folder with each command
 !commands
 !commands/ping.js
+!commands/getscore.js

@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
-const config = require("./config.json");
 const fs = require("fs");
+
+const prefix = "-"
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -17,16 +18,23 @@ client.once("ready", () => {
 });
 
 client.on("message", (msg) => {
-    if (!msg.content.startsWith(config.prefix) || msg.author.bot) return;
+    if (!msg.content.startsWith(prefix) || msg.author.bot) return;
 
-    const args = msg.content.slice(config.prefix.length).split(/ +/);
+    const args = msg.content.slice(prefix.length).split(/ +/);
     const com = args.shift().toLocaleLowerCase();
 
     if (com === 'ping') {
         client.commands.get('ping').execute(msg, args);
+    } else if (com === 'get') {
+        client.commands.get('getscore').execute(msg, args);
     }
 
 });
 
+// Comment out this for deployment
+const configFile = require("./config.json");
+token = configFile.token;
+client.login(token)
 
-client.login(config.token);
+// // Uncomment for deployment
+// client.login(process.env.token);
