@@ -1,0 +1,10 @@
+*
+
+!.gitignore
+!LICENSE
+
+!package.json
+!index.js
+!package-lock.json
+
+!*.md
