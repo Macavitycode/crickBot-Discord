@@ -1,11 +1,32 @@
 const Discord = require("discord.js");
 const config = require("./config.json");
-console.log(config.token);
+const fs = require("fs");
 
-const bot = new Discord.Client();
+const client = new Discord.Client();
+client.commands = new Discord.Collection();
 
-bot.once("ready", () => {
-  console.log("This bot is onloine");
+const comFile = fs.readdirSync("./commands/").filter((f) => f.endsWith(".js"));
+
+for (const f of comFile) {
+    const com = require(`./commands/${f}`);
+    client.commands.set(com.name, com);
+}
+
+client.once("ready", () => {
+    console.log("This bot is online");
 });
 
-bot.login(config.token);
+client.on("message", (msg) => {
+    if (!msg.content.startsWith(config.prefix) || msg.author.bot) return;
+
+    const args = msg.content.slice(config.prefix.length).split(/ +/);
+    const com = args.shift().toLocaleLowerCase();
+
+    if (com === 'ping') {
+        client.commands.get('ping').execute(msg, args);
+    }
+
+});
+
+
+client.login(config.token);

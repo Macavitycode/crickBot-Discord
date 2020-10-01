@@ -1,10 +1,18 @@
+# Ignore everything
 *
 
+# Except evrything in .gitingnore
 !.gitignore
-!LICENSE
 
+# Except License, node related, and .md files
+!LICENSE
+!*.md
 !package.json
-!index.js
 !package-lock.json
 
-!*.md
+# Entry point
+!index.js
+
+# Commands folder with each command
+!commands
+!commands/ping.js
