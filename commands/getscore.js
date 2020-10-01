@@ -3,6 +3,6 @@ module.exports = {
     description: 'Replies with updated cricket score',
     execute(msg, args) {
 
-        msg.channel.send('getting score!');
+        msg.channel.send("~OwO~ you wan't the scores I see\nNot ready yet :)");
     }
 }
