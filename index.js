@@ -33,10 +33,10 @@ client.on("message", (msg) => {
 
 });
 
-// Comment out this for deployment
-const configFile = require("./config.json");
-token = configFile.token;
-client.login(token)
+// // Comment out this for deployment
+// const configFile = require("./config.json");
+// token = configFile.token;
+// client.login(token)
 
-// // Uncomment for deployment
-// client.login(process.env.token);
+// Uncomment for deployment
+client.login(process.env.token);
