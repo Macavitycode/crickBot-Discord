@@ -22,7 +22,8 @@ module.exports = {
                     .children('a').first().attr('href'));
                 // console.log($(element).attr('class', 'cb-nws-intr').last().html());
                 // console.log('\n\n');
-                const mes = '\nArticle '.concat(String(index + 1), ':\n', title, '\n', link);
+                const mes = '**\nArticle '.concat(String(index + 1),
+                    ':\n', title, '**', '\n', link);
                 msg.channel.send(mes);
                 // console.log(mes);
             });
